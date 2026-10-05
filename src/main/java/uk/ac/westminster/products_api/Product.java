@@ -14,6 +14,6 @@ public class Product {
     }
 
     public Long getId() {return id;}
-    public String getName() {return name;}
+    public String getName() {return name;} // When commented out, Jackson sees no getter so it skips the field and nothing is displayed.
     public double getPrice() {return price;}
 }
