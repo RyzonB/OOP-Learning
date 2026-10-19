@@ -15,6 +15,11 @@ public class ProductService {
         return products;
     }
 
+
+    public ProductService() { // They came from the Product superclass via its inherited getters, which Jackson used to serialize them into JSON.
+        products.add(new DigitalProduct(nextId++,"Manga",25.0,"http://mangascans.com",4.3));
+        products.add(new PhysicalProduct(nextId++, "Laptop",999.99,2.8,"1920x1080"));
+    }
     public Product addProduct(Product product) {
         product.setId(nextId++);
         products.add(product);
@@ -37,5 +42,6 @@ public class ProductService {
                 .filter(p -> p.getName().contains(name))
                 .toList();
     }
+
 
 }
